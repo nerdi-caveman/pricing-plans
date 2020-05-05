@@ -10,7 +10,7 @@ it('renders without crashing', () => {
    { 
      'Access-Control-Allow-Origin': '*', 
      'Content-type': 'application/json' 
-   }); 
+   }).done(); 
    const div = document.createElement('div');
    ReactDOM.render(<App />, div);
    ReactDOM.unmountComponentAtNode(div); 
