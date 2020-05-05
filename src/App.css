@@ -138,6 +138,9 @@ button {
   position: absolute;
   right: 40px;
 }
+.modal .form-control {
+  margin: 15px 0;
+}
 
 @media only screen and (max-width:400px) {
   * {

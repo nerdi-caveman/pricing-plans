@@ -35,7 +35,7 @@ const ConfirmModal: React.FC<any> = ({ plan, closeModal }) => {
             <div className="form-control">
               <label>{plan.name}</label>
               <p>{plan.price > 0 ? plan.price : "Free"}</p>
-              <button>Change</button>
+              <button type = "button" onClick = {closeModal}>Change</button>
             </div>
             <div className="form-control">
               <label>Fullname</label>
