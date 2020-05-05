@@ -7,14 +7,15 @@ h1,
 h2 {
   color: #222;
 }
-html{
+
+html {
   height: 100%;
   width: 100%;
 }
 
 .App {
   text-align: center;
-  margin: 80px 80px;
+  margin: 80px 100px;
 }
 
 .App .title {
@@ -33,9 +34,23 @@ html{
   text-align: center;
 }
 
-.grid{
+.grid {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin: 60px 0;
 }
+
+.grid .card {
+  border: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+.grid .card h2 {
+
+  margin: 30px 0;
+}
+
 .App-link {
   color: #61dafb;
 }
