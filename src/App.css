@@ -131,6 +131,12 @@ button {
 
 .modal .container {
   background: #fff;
+  padding: 40px 0;
+}
+
+.modal .container > button {
+  position: absolute;
+  right: 40px;
 }
 
 @media only screen and (max-width:400px) {
