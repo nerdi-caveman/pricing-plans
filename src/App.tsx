@@ -1,26 +1,120 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { subscribeUser } from "./utils";
 
-function App() {
+const ConfirmModal: React.FC<any> = ({ plan, closeModal }) => {
+  const [name, setName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [loading, setLoading] = useState(false);
+  const submit = (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    subscribeUser({ name, plan })
+      .then((res: any) => {
+        const json = res.json();
+        setLoading(false);
+        console.log(json);
+      })
+      .catch((err: any) => {
+        console.warn(e);
+        setLoading(false);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Confirm subscription</h2>
+      <form>
+        <div className="form-control">
+          <label>{plan.name}</label>
+          <p>{plan.price > 0 ? plan.price : "Free"}</p>
+          <button>Change</button>
+        </div>
+        <div className="form-control">
+          <label>Fullname</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e: any) => setName(e.target.value)}
+          />
+        </div>
+        <div className="form-control">
+          <label>Card Number</label>
+          <input
+            type="text"
+            value={cardNumber}
+            onChange={(e: any) => setCardNumber(e.target.value)}
+          />
+        </div>
+        <button type="button" onClick={submit}>
+          {loading ? "Please wait" : "Start Membership"}
+        </button>
+      </form>
     </div>
   );
-}
+};
+
+const App: React.FC<any> = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState({});
+  const plans = [
+    {
+      name: "Bronze version",
+      className: "bronze",
+      price: 0.0,
+      description: "14 days",
+      more: [
+        "24/7 Hours Support",
+        "3 Monthly Campaigns",
+        "10 Monthly Responses",
+      ],
+    },
+  ];
+
+  return (
+    <main className="App">
+      <h1>Pricing and plans</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+        doloribus ipsam dignissimos debitis non neque, quo eaque id illum
+        quibusdam deserunt explicabo maiores soluta, quia fuga exercitationem
+        ipsum dicta ab?
+      </p>
+      <section className="grid grid-three">
+        {plans.map((item: any, index: number) => (
+          <div key={index} className={`card ${item.className}`}>
+            <h2>{item.name}</h2>
+            <p>{item.price > 0 ? item.price : "Free"}</p>
+            <p className="sub-label">14 days</p>
+
+            <ul>
+              {item.more.map((item: any, index: number) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() => {
+                setSelectedPlan({ name: item.name, price: item.price });
+                setShowModal(true);
+              }}
+            >
+              Choose plan
+            </button>
+          </div>
+        ))}
+      </section>
+      {showModal && (
+        <ConfirmModal
+          plan={selectedPlan}
+          closeModal={() => {
+            setShowModal(false);
+          }}
+        />
+      )}
+    </main>
+  );
+};
 
 export default App;
