@@ -1,5 +1,16 @@
+* {}
+
+h1,
+h2 {
+  color: #222;
+}
+
 .App {
   text-align: center;
+  margin: 50px 80px;
+}
+.App h1{
+  margin: 15px 0;
 }
 
 .App-logo {

@@ -15,6 +15,7 @@ const ConfirmModal: React.FC<any> = ({ plan, closeModal }) => {
         const json = res.json();
         setLoading(false);
         console.log(json);
+        closeModal();
       })
       .catch((err: any) => {
         console.warn(e);
@@ -24,6 +25,7 @@ const ConfirmModal: React.FC<any> = ({ plan, closeModal }) => {
 
   return (
     <div>
+      <button onClick={closeModal}>close</button>
       <h2>Confirm subscription</h2>
       <form>
         <div className="form-control">
@@ -74,13 +76,15 @@ const App: React.FC<any> = () => {
 
   return (
     <main className="App">
-      <h1>Pricing and plans</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-        doloribus ipsam dignissimos debitis non neque, quo eaque id illum
-        quibusdam deserunt explicabo maiores soluta, quia fuga exercitationem
-        ipsum dicta ab?
-      </p>
+      <div className="title">
+        <h1>Pricing and plans</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+          doloribus ipsam dignissimos debitis non neque, quo eaque id illum
+          quibusdam deserunt explicabo maiores soluta, quia fuga exercitationem
+          ipsum dicta ab?
+        </p>
+      </div>
       <section className="grid grid-three">
         {plans.map((item: any, index: number) => (
           <div key={index} className={`card ${item.className}`}>
