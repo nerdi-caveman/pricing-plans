@@ -26,35 +26,39 @@ const ConfirmModal: React.FC<any> = ({ plan, closeModal }) => {
   };
 
   return (
-    <div>
-      <button onClick={closeModal}>close</button>
-      <h2>Confirm subscription</h2>
-      <form>
-        <div className="form-control">
-          <label>{plan.name}</label>
-          <p>{plan.price > 0 ? plan.price : "Free"}</p>
-          <button>Change</button>
+    <div className="modal">
+      <div className="modal-container">
+        <div className="container">
+          <button onClick={closeModal}>close</button>
+          <h2>Confirm subscription</h2>
+          <form>
+            <div className="form-control">
+              <label>{plan.name}</label>
+              <p>{plan.price > 0 ? plan.price : "Free"}</p>
+              <button>Change</button>
+            </div>
+            <div className="form-control">
+              <label>Fullname</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e: any) => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-control">
+              <label>Card Number</label>
+              <input
+                type="text"
+                value={cardNumber}
+                onChange={(e: any) => setCardNumber(e.target.value)}
+              />
+            </div>
+            <button type="button" onClick={submit}>
+              {loading ? "Please wait" : "Start Membership"}
+            </button>
+          </form>
         </div>
-        <div className="form-control">
-          <label>Fullname</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e: any) => setName(e.target.value)}
-          />
-        </div>
-        <div className="form-control">
-          <label>Card Number</label>
-          <input
-            type="text"
-            value={cardNumber}
-            onChange={(e: any) => setCardNumber(e.target.value)}
-          />
-        </div>
-        <button type="button" onClick={submit}>
-          {loading ? "Please wait" : "Start Membership"}
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
@@ -113,7 +117,7 @@ const App: React.FC<any> = () => {
         {plans.map((item: any, index: number) => (
           <div key={index} className={`card ${item.className}`}>
             <h2>{item.name}</h2>
-            <p>{item.price > 0 ? "$"+item.price + ".00" : "Free"}</p>
+            <p>{item.price > 0 ? "$" + item.price + ".00" : "Free"}</p>
             <p className="sub-label">14 days</p>
 
             <ul>
