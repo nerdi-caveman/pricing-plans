@@ -6,7 +6,7 @@ import App from '../App';
 it('renders without crashing', () => { 
    const scope = nock('http://myapi.com') 
    .post('/subscription')
-   .reply(200, { success: true, data: [{ id: 1, name: 'nocked data' }] }, 
+   .reply(200, { success: true }, 
    { 
      'Access-Control-Allow-Origin': '*', 
      'Content-type': 'application/json' 
