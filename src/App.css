@@ -1,11 +1,11 @@
 * {
   margin: 0;
+  color: #222;
   padding: 0;
 }
 
 h1,
 h2 {
-  color: #222;
 }
 p{
   
@@ -51,16 +51,29 @@ html {
 
 .grid .card h2 {
   margin: 15px 0;
+  font-weight: 400;
 }
 
 .grid .card p {
-  margin: 15px 0;
-  font-size: 3em;
+  margin: 5px 0;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .grid .card .sub-label {
-  margin: 15px 0;
+  margin: 5px 0;
   font-size: 15px;
+  font-weight: 400;
+  color: #888;
+}
+
+.grid .card ul {
+  margin: 30px 0;
+}
+
+.grid .card li {
+  margin: 5px 0;
+  display: block;
 }
 
 .App-link {
