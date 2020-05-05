@@ -77,7 +77,7 @@ const App: React.FC<any> = () => {
     {
       name: "Silver version",
       className: "silver",
-      price: 11.00,
+      price: 11.0,
       description: "14 days",
       more: [
         "24/7 Hours Support",
@@ -88,7 +88,7 @@ const App: React.FC<any> = () => {
     {
       name: "Gold version",
       className: "gold",
-      price: 15.00,
+      price: 15.0,
       description: "1 month",
       more: [
         "24/7 Hours Support",
@@ -113,7 +113,7 @@ const App: React.FC<any> = () => {
         {plans.map((item: any, index: number) => (
           <div key={index} className={`card ${item.className}`}>
             <h2>{item.name}</h2>
-            <p>{item.price > 0 ? item.price : "Free"}</p>
+            <p>{item.price > 0 ? "$"+item.price + ".00" : "Free"}</p>
             <p className="sub-label">14 days</p>
 
             <ul>
