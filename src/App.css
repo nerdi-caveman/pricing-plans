@@ -19,7 +19,7 @@ html {
 
 .App {
   text-align: center;
-  margin: 80px 100px;
+  margin: 80px 150px;
 }
 
 .App .title {
@@ -47,7 +47,7 @@ html {
 
 .grid .card {
   border: 1px solid #ddd;
-  padding: 30px 0;
+  padding: 40px 0;
 }
 
 .grid .card h2 {
@@ -87,6 +87,27 @@ button {
   color: #61dafb;
   background: none;
   font-size: 15px;
+  cursor: pointer;
+}
+
+.card.gold {
+  background: gold;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.card.gold button {
+  background: #fff;
+  color: gold;
+  border: 1px solid transparent;
+}
+
+.card.gold .sub-label {
+  color: #f5f5f5;
+}
+
+.card.gold * {
+  color: #fff;
 }
 
 @media only screen and (max-width:400px) {
