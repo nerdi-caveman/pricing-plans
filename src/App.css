@@ -5,12 +5,13 @@
 }
 
 h1,
-h2 {
-}
-p{
-  
+h2 {}
+
+p {
+
   font-size: 15px;
 }
+
 html {
   height: 100%;
   width: 100%;
@@ -78,6 +79,20 @@ html {
 
 .App-link {
   color: #61dafb;
+}
+
+button {
+  padding: 10px 22px;
+  border: 1px solid #61dafb;
+  color: #61dafb;
+  background: none;
+  font-size: 15px;
+}
+
+@media only screen and (max-width:400px) {
+  * {
+    background: red;
+  }
 }
 
 @keyframes App-logo-spin {
