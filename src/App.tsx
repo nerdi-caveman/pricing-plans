@@ -74,6 +74,28 @@ const App: React.FC<any> = () => {
         "10 Monthly Responses",
       ],
     },
+    {
+      name: "Silver version",
+      className: "silver",
+      price: 11.00,
+      description: "14 days",
+      more: [
+        "24/7 Hours Support",
+        "3 Monthly Campaigns",
+        "10 Monthly Responses",
+      ],
+    },
+    {
+      name: "Gold version",
+      className: "gold",
+      price: 15.00,
+      description: "1 month",
+      more: [
+        "24/7 Hours Support",
+        "3 Monthly Campaigns",
+        "10 Monthly Responses",
+      ],
+    },
   ];
 
   return (
