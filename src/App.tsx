@@ -14,8 +14,10 @@ const ConfirmModal: React.FC<any> = ({ plan, closeModal }) => {
       .then((res: any) => {
         const json = res.json();
         setLoading(false);
-        console.log(json);
-        closeModal();
+        if (json.success) {
+          alert("Success!!");
+          closeModal();
+        }
       })
       .catch((err: any) => {
         console.warn(e);
